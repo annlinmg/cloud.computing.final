@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@line/liff": "^2.23.1"
+  }
+}
+
+
+
+"scripts": {
+    "predeploy": "npm run build", // will run the code before deploy
+    "deploy": "gh-pages -d build", // gh-pages => github pages hence this is for github deployment
+    "clean": "rm dist/bundle.js", // rm to remove the bundle.js
+    "start": "react-scripts start", // to start the react-app
+    "build-prod": "parcel build src/index.html" // to make build using parcel module bundler
+  }

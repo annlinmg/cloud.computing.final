@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蟻窩瘋手作工作</title>
+    <link rel="stylesheet" href="styles.css">
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <!-- 添加 Google Sheets API JavaScript 文件 -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <!-- 0227測試 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- 0227測試 -->
+
+    <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NFJB3HQ9');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFJB3HQ9"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    
+    <!-- 登錄螢幕 -->
+    <div id="login-screen" class="screen">
+        <img src="ants_start.png" alt="登入" onclick="startGame()">
+    </div>
+
+    <!-- 遊戲頁面 -->
+    <div id="game-screen" class="screen" style="display: none;">
+        <div id="user-info">
+            <img id="pictureUrl" src="" alt="Profile Picture" />
+            <span id="displayName"></span>
+        </div>
+        <h1>蟻窩瘋手作工坊</h1>
+
+
+        <div id="drink-options" class="button-group">
+          <button id="btn-milk-tea" onclick="handleButtonClick('奶茶', '#d32f2f')">奶茶</button>
+          <button id="btn-black-tea" onclick="handleButtonClick('紅茶', '#388e3c')">紅茶</button>
+          <button id="btn-green-tea" onclick="handleButtonClick('綠茶', '#fbc02d')">綠茶</button>
+        </div>
+        
+        <div id="topping-options" class="button-group">
+          <button id="btn-regular-ice" onclick="handleButtonClick('正常冰', '#795548')">正常冰</button>
+          <button id="btn-less-ice" onclick="handleButtonClick('少冰', '#0097a7')">少冰</button>
+          <button id="btn-no-ice" onclick="handleButtonClick('去冰', '#7b1fa2')">去冰</button>
+        </div>
+        
+        <div id="ice-options" class="button-group">
+          <button id="btn-full-sugar" onclick="handleButtonClick('全糖', '#1976d2')">全糖</button>
+          <button id="btn-half-sugar" onclick="handleButtonClick('半糖', '#1976d2')">半糖</button>
+          <button id="btn-no-sugar" onclick="handleButtonClick('無糖', '#1976d2')">無糖</button>
+        </div>
+
+        
+        <button id="shake-button" onclick="startShaking()">搖起來</button>
+        <div id="shaker-container" class="shaker"></div>
+        <div id="drink-result"></div>
+    </div>
+    <script type="text/javascript">
+        function startShaking(){
+            $.get("https://script.google.com/macros/s/AKfycbyr0s6EDWmpQg8_y5bjFFr_juM0B2K0YwL--zSiuQUxTtoLkehrSW-VOAroJ_ORNviv/exec", {
+                        "timestamp": new Date().toLocaleString(),
+                        "name": document.getElementById("displayName"),
+                        "action": document.getElementById("drink-options").value
+                    },
+                    function (data) {
+                        document.write("--------------------------");
+                        document.write("Result = "+data);
+                        document.write("--------------------------");
+                    });
+        }
+    </script>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

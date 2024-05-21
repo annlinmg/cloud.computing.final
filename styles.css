@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 确保在最前面 */
+}
+
+#login-screen img {
+    max-width: 80%;
+    max-height: 80%;
+    cursor: pointer;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#displayName {
+    font-size: 16px;
+}
+
+.button-group {
+    margin-bottom: 15px;
+}
+
+.button-group button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-group button:active {
+    transform: scale(0.95);
+}
+
+#shake-button {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#shaker-container {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    margin: 20px auto;
+    background: url('barista.png') no-repeat center center;
+    background-size: contain;
+}
+
+.ingredient {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: addIngredient 2s ease forwards;
+}
+
+@keyframes addIngredient {
+    0% {
+        bottom: -20px;
+        opacity: 1;
+    }
+    50% {
+        bottom: 180px;
+        opacity: 1;
+    }
+    100% {
+        bottom: 120px;
+        opacity: 0;
+    }
+}
+
+@keyframes shakeAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-10px, -5px);
+    }
+    50% {
+        transform: translate(10px, 5px);
+    }
+    75% {
+        transform: translate(-5px, -10px);
+    }
+    100% {
+        transform: translate(5px, 10px);
+    }
+}
+
+.shaking {
+    animation: shakeAnimation 0.3s ease-in-out infinite;
+}
